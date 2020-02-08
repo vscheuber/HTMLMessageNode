@@ -22,6 +22,7 @@ A sample tree could look like this:
 Note: The user is first properly authenticated using username and password, only then does she reach the PPC node.
 
 A few sample dialogs:
+
 Footer with links | Message with custom button text | Personalized greeting
 ----------------- | ------------------------------- | ---------------------
 <img src="./example_dialog_footer.png" alt="Footer with links" width="250"/> | <img src="./example_dialog_message.png" alt="Message with custom button text" width="250"/> | <img src="./example_dialog_variable.png" alt="Personalized greeting" width="250"/>
