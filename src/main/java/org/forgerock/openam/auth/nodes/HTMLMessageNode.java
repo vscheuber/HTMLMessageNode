@@ -27,7 +27,6 @@ import java.util.ResourceBundle;
 
 import javax.inject.Inject;
 
-import org.forgerock.json.JsonValue;
 import org.forgerock.openam.annotations.sm.Attribute;
 import org.forgerock.openam.auth.node.api.Action;
 import org.forgerock.openam.auth.node.api.Node;
@@ -41,7 +40,6 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.assistedinject.Assisted;
 import com.sun.identity.authentication.callbacks.HiddenValueCallback;
 import com.sun.identity.authentication.callbacks.ScriptTextOutputCallback;
-import com.sun.identity.shared.debug.Debug;
 import com.sun.identity.sm.RequiredValueValidator;
 
 @Node.Metadata(outcomeProvider = HTMLMessageNode.OutcomeProvider.class,
@@ -49,12 +47,9 @@ import com.sun.identity.sm.RequiredValueValidator;
 public class HTMLMessageNode extends SingleOutcomeNode {
 
     private static final String BUNDLE = HTMLMessageNode.class.getName().replace(".", "/");
-    private final Logger logger = LoggerFactory.getLogger(HTMLMessageNode.class);
-    private final static String DEBUG_FILE = "HTMLMessageNode";
+    private final Logger logger = LoggerFactory.getLogger("amAuth");
 	private static final String VALIGN_NEUTRAL_ANCHOR = "HTMLMessageNode_vAlign_Neutral";
-    protected Debug debug = Debug.getInstance(DEBUG_FILE);
     private final LocaleSelector localeSelector;
-    
     private final Config config;
 
     /*
@@ -130,14 +125,11 @@ public class HTMLMessageNode extends SingleOutcomeNode {
 
     @Override
     public Action process(TreeContext context) throws NodeProcessException {
-        JsonValue sharedState = context.sharedState;
-        JsonValue transientState = context.transientState;
-
         if (context.hasCallbacks()) {
-        	debug.error("[" + DEBUG_FILE + "]: Done.");
+        	logger.debug("Done.");
             return goToNext().build();
         }
-    	debug.error("[" + DEBUG_FILE + "]: Display message.");
+        logger.debug("Display message.");
         ScriptTextOutputCallback scriptAndSelfSubmitCallback = new ScriptTextOutputCallback(createClientSideScriptExecutorFunction(getScript(context)));
         return Action.send(Arrays.asList(
         		scriptAndSelfSubmitCallback,
@@ -192,7 +184,7 @@ public class HTMLMessageNode extends SingleOutcomeNode {
     	}
     	if (config.overwriteButton()) {
 	    	String overwriteButtonText = substitute(context, getLocalisedMessage(context, config.overwriteButtonText(), "default.overwriteButtonText"));
-	    	debug.error("[" + DEBUG_FILE + "]: Overwriting button: " + overwriteButtonText);
+	    	logger.debug("Overwriting button: " + overwriteButtonText);
 	    	script
 	    		.append("    var button = document.getElementById(\"loginButton_0\");\n")
 	    		.append("    button.value = \"").append(overwriteButtonText).append("\";\n")
@@ -243,7 +235,6 @@ public class HTMLMessageNode extends SingleOutcomeNode {
     		}
     		else {
     			logger.debug("Shared state property not found: "+key);
-    			debug.error("[" + DEBUG_FILE + "]: Shared state property not found: "+key);
     		}
     	}
     	
