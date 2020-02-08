@@ -34,7 +34,7 @@ Message | Enter the message to display. Use HTML tags for formatting. You can re
 Vertically Align | Select where you would like the message to appear vertically: Top inserts it before the first field, bottom inserts it at the very end (after the button), and neutral inserts it right where you position the node (top and neutral only differ inside a page node).
 Horizontally Align | Select the text alignment inside the box.
 Box | Select this option to have the message appear in a box.
-Overwrite Button | Enabled this option to change the text of the <code>LOG IN</code> button.
+Overwrite Button | Enable this option to change the text of the <code>LOG IN</code> button.
 Button Text | Specify localized texts for to overwrite the <code>LOG IN</code> button with.
 
 ## Building Authentication Nodes
