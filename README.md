@@ -23,7 +23,7 @@ Note: The user is first properly authenticated using username and password, only
 
 A few sample dialogs:
 
-<img src="./example_dialog_footer.png" alt="Footer" width="300"/><img src="./example_dialog_message.png" alt="Footer" width="300"/><img src="./example_dialog_variable.png" alt="Footer" width="300"/>
+<img src="./example_dialog_footer.png" alt="Footer with links" width="250"/><img src="./example_dialog_message.png" alt="Message with custom button text" width="250"/><img src="./example_dialog_variable.png" alt="Personalized greeting" width="250"/>
 
 ## Settings
 Setting             | Description
