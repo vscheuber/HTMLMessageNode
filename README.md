@@ -8,6 +8,7 @@ Download a release build fom the *release* tab or clone this repository to build
 
 
 ## Related Nodes
+- <a href="https://github.com/vscheuber/ThemeNode">Theme Node</a>
 - <a href="https://github.com/vscheuber/TermsAndConditionsNode">Terms And Conditions Node</a>
 - <a href="https://github.com/vscheuber/ProgressiveProfileCompletion">Progressive Profile Completion Node</a>
 
